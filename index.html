@@ -1,0 +1,40 @@
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+const supabase = createClient('https://dumzxgwuzzuasdlqrytw.supabase.co', 'sb_publishable_rout-nyMOoH7Sm5YLzLhOA_2N9iHgdp')
+
+async function notSorgula() {
+  const ogrNo = document.getElementById("ogr_no1").value
+  const ad = document.getElementById("ad_soyad").value
+  
+  const { data, error } = await supabase
+    .from('vize_mat2not')
+    .select('*')
+    .eq('ogr_no1', ogrNo)
+    .eq('ad_soyad', ad)
+    
+  if (error) {
+    document.getElementById("sonuc").innerText = "Hata: " + error.message
+  } else if (data.length === 0) {
+    document.getElementById("sonuc").innerText = "Öğrenci bulunamadı"
+  } else {
+    const kayit = data[0]
+    document.getElementById("sonuc").innerText =
+      `No: ${kayit.ogr_no}\nAd: ${kayit.ad}\nSoyad: ${kayit.soyad}\nDoğru: ${kayit.dogru}\nYanlış: ${kayit.yanlis}\nNot: ${kayit.not}`
+  }
+}
+</script>
+
+<input id="ogr_no" placeholder="Öğrenci No">
+<input id="ad_soyad" placeholder="Ad">
+<button onclick="notSorgula()">Sorgula</button>
+<pre id="sonuc"></pre>
+<body>
+  <h2>Öğrenci Not Sorgulama</h2>
+  <input id="ogr_no" placeholder="Öğrenci No"><br>
+  <input id="ad" placeholder="Ad"><br>
+  <input id="soyad" placeholder="Soyad"><br>
+  <button onclick="notSorgula()">Sorgula</button>
+  <pre id="sonuc"></pre>
+</body>
+</html>
