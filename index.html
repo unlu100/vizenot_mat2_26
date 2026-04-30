@@ -5,7 +5,7 @@ const supabase = createClient('https://dumzxgwuzzuasdlqrytw.supabase.co', 'sb_pu
 
 async function notSorgula() {
   const ogrNo = document.getElementById("ogr_no1").value
-  const ad = document.getElementById("ad_soyad").value
+  const ad = document.getElementById("ad_soyad").string
   
   const { data, error } = await supabase
     .from('vize_mat2not')
