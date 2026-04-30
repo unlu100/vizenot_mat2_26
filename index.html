@@ -11,7 +11,7 @@ async function notSorgula() {
     .from('vize_mat2not')
     .select('*')
     .eq('ogr_no1', parseInt(ogrNo))
-    .eq('ad_soyad', ad)
+    .ilike('ad_soyad', ad)
     
   if (error) {
     document.getElementById("sonuc").innerText = "Hata: " + error.message
