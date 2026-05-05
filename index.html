@@ -1,0 +1,46 @@
+<label for="ogr_no">Öğrenci No:</label>
+<input type="text" id="ogr_no"><br>
+
+<label for="ad">Ad:</label>
+<input type="text" id="ad"><br>
+
+<label for="soyad">Soyad:</label>
+<input type="text" id="soyad"><br>
+
+<button onclick="notSorgula()">Sorgula</button>
+
+<div id="sonuc"></div>
+
+<script>
+async function notSorgula() {
+    const ogrNo = document.getElementById("ogr_no").value;
+    const ad = document.getElementById("ad").value;
+    const soyad = document.getElementById("soyad").value;
+    const sonucDiv = document.getElementById("sonuc");
+
+    if (!ogrNo || !ad || !soyad) {
+        sonucDiv.innerHTML = "Lütfen tüm bilgileri girin.";
+        return;
+    }
+
+    try {
+        const response = await fetch(`/not_sorgu?ogr_no=${ogrNo}&ad=${ad}&soyad=${soyad}`);
+        const data = await response.json();
+
+        if (data.hata) {
+            sonucDiv.innerHTML = "Hata: " + data.hata;
+        } else {
+            sonucDiv.innerHTML = `
+                Öğrenci No: ${data.ogr_no}<br>
+                Ad: ${data.ad}<br>
+                Soyad: ${data.soyad}<br>
+                Doğru: ${data.dogru}<br>
+                Yanlış: ${data.yanlis}<br>
+                Not: ${data.not}
+            `;
+        }
+    } catch (error) {
+        sonucDiv.innerHTML = "Sunucuya bağlanırken hata oluştu.";
+    }
+}
+</script>
