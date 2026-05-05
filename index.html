@@ -27,7 +27,13 @@ async function notSorgula() {
         sonucDiv.innerHTML = "Lütfen tüm bilgileri girin.";
         return;
     }
-
+  
+    const { data, error } = await supabase
+    .from('vize_mat2not')
+    .select('*')
+    .eq('ogr_no1', parseInt(ogrNo))
+    .ilike('ad_soyad', ad)
+    
     try {
         const response = await fetch(`/not_sorgu?ogr_no=${ogrNo}&ad=${ad}&soyad=${soyad}`);
         const data = await response.json();
