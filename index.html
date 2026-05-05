@@ -18,7 +18,7 @@ const supabase = createClient('https://dumzxgwuzzuasdlqrytw.supabase.co', 'sb_pu
 
 <script>
 async function notSorgula() {
-    const ogrNo = document.getElementById("ogr_no").value;
+    const ogrNo = document.getElementById("ogr_no1").value;
     const ad = document.getElementById("ad").value;
     const soyad = document.getElementById("soyad").value;
     const sonucDiv = document.getElementById("sonuc");
@@ -36,7 +36,7 @@ async function notSorgula() {
             sonucDiv.innerHTML = "Hata: " + data.hata;
         } else {
             sonucDiv.innerHTML = `
-                Öğrenci No: ${data.ogr_no}<br>
+                Öğrenci No: ${data.ogr_no1}<br>
                 Ad: ${data.ad}<br>
                 Soyad: ${data.soyad}<br>
                 Doğru: ${data.dogru}<br>
