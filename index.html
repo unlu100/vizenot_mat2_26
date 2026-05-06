@@ -29,7 +29,7 @@ async function notSorgula() {
     }
   
     const { data, error } = await supabase
-    .from('vize_mat2not')
+    .from('ogrenciler')
     .select('*')
     .eq('ogr_no1', parseInt(ogrNo))
     .ilike('ad_soyad', ad)
