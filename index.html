@@ -1,0 +1,47 @@
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const supabase = createClient(
+  "https://dumzxgwuzzuasdlqrytw.supabase.co",
+  "sb_publishable_rout-nyMOoH7Sm5YLzLhOA_2N9iHgdp"
+);
+
+async function notSorgula() {
+  const ogrNo = document.getElementById("ogr_no1").value;
+  const adSoyad = document.getElementById("ad_soyad").value;
+  const sonucDiv = document.getElementById("sonuc");
+
+  if (!ogrNo || !adSoyad) {
+    sonucDiv.innerHTML = "Lütfen tüm bilgileri girin.";
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from("vize_mat2not")   // tablo adı
+    .select("*")
+    .eq("ogr_no1", parseInt(ogrNo))
+    .eq("ad_soyad", adSoyad);
+
+  if (error) {
+    sonucDiv.innerHTML = "Hata: " + error.message;
+  } else if (!data || data.length === 0) {
+    sonucDiv.innerHTML = "Öğrenci bulunamadı.";
+  } else {
+    const ogr = data[0];
+    sonucDiv.innerHTML = `
+      Öğrenci No: ${ogr.ogr_no1}<br>
+      Ad Soyad: ${ogr.ad_soyad}<br>
+      Not: ${ogr.not}
+    `;
+  }
+}
+</script>
+
+<label>Öğrenci No:</label>
+<input id="ogr_no1" placeholder="Öğrenci No"><br>
+
+<label>Ad Soyad:</label>
+<input id="ad_soyad" placeholder="Ad Soyad"><br>
+
+<button onclick="notSorgula()">Sorgula</button>
+<div id="sonuc"></div>
