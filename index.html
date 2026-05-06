@@ -17,7 +17,7 @@ async function notSorgula() {
   }
 
   const { data, error } = await supabase
-    .from("vize_mat2not")   // tablo adı
+    .from("ogrenciler")   // tablo adı
     .select("*")
     .eq("ogr_no1", parseInt(ogrNo))
     .eq("ad_soyad", adSoyad);
