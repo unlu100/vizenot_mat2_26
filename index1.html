@@ -8,7 +8,7 @@ async function notSorgula() {
   const ad = document.getElementById("ad_soyad").text
   
   const { data, error } = await supabase
-    .from('ogrenciler')
+    .from('vize_mat2not')
     .select('*')
     .eq('ogr_no1', parseInt(ogrNo))
     .ilike('ad_soyad', ad)
