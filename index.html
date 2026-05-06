@@ -35,7 +35,7 @@ async function notSorgula() {
     .ilike('ad_soyad', ad)
     
     try {
-        const response = await fetch(`/not_sorgu?ogr_no=${ogrNo}&ad=${ad}&soyad=${soyad}`);
+        const response = await fetch(`/not_sorgu?ogr_no=${ogrNo}&ad=${ad}&" "&soyad=${soyad}`);
         const data = await response.json();
 
         if (data.hata) {
