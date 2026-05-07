@@ -76,7 +76,7 @@
 	<textarea id="metinA" rows="6" style="width:100%;">
 	A kitapçığı açıklaması:
 	Soru 1-2: Rasyonel fonksiyon türevi
-	S 3: Kesirlü üslü f(x) türevi
+	S 3: Kesirli üslü f(x) türevi
 	Soru 4, 5, 6, 7: f(x)=...e^x // 1. ve 2. türev
 	S 8: ln köklü fonksiyon türevi
 	S 9, 10, 11: Polinom fonksiyon ... noktası türevi, yukarı/aşağı bükey
@@ -95,10 +95,10 @@
 	B kitapçığı açıklaması:
 	S 1, 2, 3: Grafikli Soru
 	Soru 4, 5, 6, 7: f(x)=...e^x // 1. ve 2. türev
-	S 8: ln köklü fonksiyon türevi
+	S 8: Ln köklü fonksiyon türevi
 	S 9, 10, 11: Polinom fonksiyon ... noktası türevi, yukarı/aşağı bükey
 	Soru 12: Rasyonel fonksiyon türevi
-	S 13: Kesirlü üslü f(x) türevi
+	S 13: Kesirli üslü f(x) türevi
 	Soru 14-15: Rasyonel fonksiyon türevi
 	S 16, 17: AC, MC Türev iktisadi uygulama
 	S 18: Kesirlü üslü f(x) türevi
@@ -197,13 +197,13 @@
 
 		<p><strong>Kitapçık:</strong> ${ogr.kitapcik}</p>
 
-		<pre>
-		${
-		  ogr.kitapcik === "A"
-		    ? document.getElementById("metinA").value
-		    : document.getElementById("metinB").value
-		}
-		</pre>
+			<pre>
+			${
+			  ogr.kitapcik === "A"
+			    ? document.getElementById("metinA").value
+			    : document.getElementById("metinB").value
+			}
+			</pre>
 
       </div>
     `;
