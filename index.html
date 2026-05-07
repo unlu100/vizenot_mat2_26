@@ -187,13 +187,23 @@
 
         <p><strong>Yanlış Sayısı:</strong> ${ogr.yanlis_sayi}</p>
 
-        <p><strong>Kitapçık:</strong> ${ogr.kitapcik}</p>
-
         <p><strong>Verdiğiniz Cevaplar:</strong> ${ogr.Konu1Cev}</p>
 
         <p><strong>Doğrular1:</strong> ${ogr.dogrular1}</p>
 
         <p><strong>Yanlışlar:</strong> ${ogr.yanlislar}</p>
+
+		<p><strong>Cevap Anahtarı:</strong></p>
+
+		<p><strong>Kitapçık:</strong> ${ogr.kitapcik}</p>
+
+		<pre>
+		${
+		  ogr.kitapcik === "A"
+		    ? document.getElementById("metinA").value
+		    : document.getElementById("metinB").value
+		}
+		</pre>
 
       </div>
     `;
