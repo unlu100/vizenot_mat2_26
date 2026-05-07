@@ -1,5 +1,6 @@
 # vizenot_mat2_26
 Vize Matematik 2 Notları Sorgulamak için Supabase, HTML ve JavaScript kodlarıyla hazırlanmış bir kod öbeğidir.
+
 Sorgulama Ekranına "Öğrenci No" ve "AD SOYAD" bilgisini girerek sorgulama yazmanız gerekir.
 
 ### Başlangıçta Supabase ortamına veri dosyasını database olarak yüklemeniz gerekir.
