@@ -170,6 +170,16 @@
     }
 
     const ogr = data[0];
+	// SAYACI ARTIR
+
+	const yeniSayac = (ogr.sayac || 0) + 1;
+	
+	await supabaseClient
+	  .from('vize_mat2not')
+	  .update({
+	    sayac: yeniSayac
+	  })
+	  .eq('ogr_no1', ogr.ogr_no1);
 
     sonucDiv.innerHTML = `
       <div class="result">
@@ -191,6 +201,8 @@
         <p><strong>Doğrular1:</strong> ${ogr.dogrular1}</p>
 
         <p><strong>Yanlışlar:</strong> ${ogr.yanlislar}</p>
+
+		<p><strong>Toplam Görüntülenme:</strong> ${yeniSayac}</p>
 
 		<p><strong>Kitapçık:</strong> ${ogr.kitapcik}</p>
 
