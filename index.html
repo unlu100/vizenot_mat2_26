@@ -126,41 +126,6 @@
 	S 22: Kapalı fonksiyon türevi `
   };
   
-  <h3>A Kitapçığı Metni</h3>
-	<textarea id="metinA" rows="6" style="width:100%;">
-	A kitapçığı açıklaması:
-	Soru 1-2: Rasyonel fonksiyon türevi
-	S 3: Kesirli üslü f(x) türevi
-	Soru 4, 5, 6, 7: f(x)=...e^x // 1. ve 2. türev
-	S 8: ln köklü fonksiyon türevi
-	S 9, 10, 11: Polinom fonksiyon ... noktası türevi, yukarı/aşağı bükey
-	S 12: Türev çıkış formülü
-	S 13: Logaritmik Türev
-	S 14, 15, 16: Grafikli Soru
-	S 17: Ln ... ^3 fonksiyon türevi
-	S 18: Log... f(x) türevi
-	S 19: L'Hospital Kuralı
-	S 20: Kapalı fonksiyon türevi
-	S 21, 22: AC, MC Türev iktisadi uygulama
-	</textarea>
-
-<h3>B Kitapçığı Metni</h3>
-	<textarea id="metinB" rows="6" style="width:100%;">
-	B kitapçığı açıklaması:
-	S 1, 2, 3: Grafikli Soru
-	Soru 4, 5, 6, 7: f(x)=...e^x // 1. ve 2. türev
-	S 8: Ln köklü fonksiyon türevi
-	S 9, 10, 11: Polinom fonksiyon ... noktası türevi, yukarı/aşağı bükey
-	Soru 12: Rasyonel fonksiyon türevi
-	S 13: Kesirli üslü f(x) türevi
-	Soru 14-15: Rasyonel fonksiyon türevi
-	S 16, 17: AC, MC Türev iktisadi uygulama
-	S 18: Kesirlü üslü f(x) türevi
-	S 19: Ln ... ^3 fonksiyon türevi
-	S 20: Log... f(x) türevi
-	S 21: L'Hospital Kuralı
-	S 22: Kapalı fonksiyon türevi
-	</textarea>
   
   async function sorgula(){
 
@@ -230,17 +195,18 @@
 
 		<p><strong>Cevap Anahtarı:</strong></p>
 
-		<p><strong>Kitapçık:</strong> ${ogr.kitapcik}</p>
-
-			<pre>
-			${
-			  ogr.kitapcik === "A"
-			    ? document.getElementById("metinA").value
-			    : document.getElementById("metinB").value
-			}
-			</pre>
-
-      </div>
+		<p><strong>Cevap Anahtarı:</strong></p>
+		
+		<div style="
+		  background:#f7f7f7;
+		  padding:10px;
+		  border-radius:5px;
+		  white-space:pre-wrap;
+		  font-family:monospace;
+		">
+		${cevapAnahtari[ogr.kitapcik]}
+	
+	      </div>
     `;
   }
 
